@@ -23,6 +23,9 @@ end
 def validate_ten_number(num)
 	valid = true
 
+
+
+
 #setting my check sum here... if it is "x" or "X" check sum is 10 else check is converted to integer for following calculation
 	check = num[num.length - 1]
 
@@ -57,5 +60,11 @@ def validate_ten_number(num)
 	return valid
 
 end
+
+
+# puts "What is you ISBN number?"
+# num = gets.chomp
+
+
 
 

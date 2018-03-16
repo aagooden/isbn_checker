@@ -88,11 +88,24 @@ class Isbn_test < Minitest::Test
 		assert_equal(true, validate_ten_number(prepared))
 	end
 
-	def test_prepare_and_validate_functions_working_together_properly_true_and_false_no_x
+	def test_prepare_and_validate_functions_working_together_properly_true_and_true_no_x
 		num = " 047 19586 9 7 "
 		prepared = prepare(num)
 		assert_equal(true, validate_length(prepared))
 		assert_equal(true, validate_ten_number(prepared))
+	end
+
+	def test_prepare_and_validate_functions_working_together_properly_true_and_false_strange_characters
+		num = " - @$% &()* 4 / "
+		prepared = prepare(num)
+		assert_equal(true, validate_length(prepared))
+		assert_equal(false, validate_ten_number(prepared))
+	end
+
+	def test_prepare_and_validate_length_false_strange_character
+		num = " - "
+		prepared = prepare(num)
+		assert_equal(false, validate_length(prepared))
 	end
 
 #tests for 13 digit numbers starts here
@@ -110,6 +123,11 @@ class Isbn_test < Minitest::Test
 	def test_check_if_number_is_13_digits_long_true_if_is
 		num = "1234567890123"
 		assert_equal(true, validate_length(num))
+	end
+
+		def test_return_boolean_with_validate13
+		num = "5555555555555"
+		assert_equal(TrueClass, validate_ten_number(num).class)
 	end
 
 
