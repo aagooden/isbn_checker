@@ -9,10 +9,10 @@ end
 
 
 def validate_length(num)
-	valid = true
+	valid = false
 
-	if num.length != 10
-		valid = false
+	if num.length == 10 || num.length == 13
+		valid = true
 	end
 
 	return valid

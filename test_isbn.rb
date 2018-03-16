@@ -22,6 +22,11 @@ class Isbn_test < Minitest::Test
 		assert_equal(false, validate_length(num))
 	end
 
+	def test_check_if_number_is_10_digits_long_true_if_is
+		num = "123456789x"
+		assert_equal(true, validate_length(num))
+	end
+
 	def test_check_if_number_is_not_10_digits_long_false_if_not_short_num
 		num = "1234560x"
 		assert_equal(false, validate_length(num))
@@ -89,6 +94,26 @@ class Isbn_test < Minitest::Test
 		assert_equal(true, validate_length(prepared))
 		assert_equal(true, validate_ten_number(prepared))
 	end
+
+#tests for 13 digit numbers starts here
+
+	def test_check_if_number_is_not_13_digits_long_false_if_not
+		num = "123456789123"
+		assert_equal(false, validate_length(num))
+	end
+
+	def test_check_if_number_is_not_13_digits_long_false_if_not_short_num
+		num = "1234560"
+		assert_equal(false, validate_length(num))
+	end
+
+	def test_check_if_number_is_13_digits_long_true_if_is
+		num = "1234567890123"
+		assert_equal(true, validate_length(num))
+	end
+
+
+
 
 end
 
