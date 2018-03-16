@@ -59,7 +59,41 @@ def validate_ten_number(num)
 end
 
 def validate_13_number(num)
-	valid = true
+
+	check = num[num.length - 1]
+	check = check.to_i
+
+	num[num.length - 1] = ""
+	switch = true
+	multiplier = 1
+	sum = 0
+
+
+
+	num.each_char do |char|
+		if switch == true 
+			multiplier = 1
+		else
+			multiplier = 3
+		end
+
+	sum = sum + (char.to_i * multiplier)
+		!switch
+	end
+
+
+
+	sum = (10 - (sum % 10)) % 10
+
+	if sum == check
+		valid = true
+	else
+		valid = false
+
+
+	return valid
+
+	end
 end
 
 # puts "What is you ISBN number?"
