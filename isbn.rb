@@ -20,12 +20,12 @@ def validate_length(num)
 end
 
 
-def validate_number(num)
+def validate_ten_number(num)
 	valid = true
 
 #setting my check sum here... if it is "x" or "X" check sum is 10 else check is converted to integer for following calculation
 	check = num[num.length - 1]
-	
+
 	if check == "x" || check =="X"
 		check = 10
 	else
