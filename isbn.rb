@@ -7,6 +7,7 @@ def prepare(num)
 
 end
 
+
 def validate_length(num)
 	valid = true
 
@@ -14,6 +15,15 @@ def validate_length(num)
 		valid = false
 	end
 
-valid
+	return valid
 
 end
+
+
+def validate_number(num)
+	valid = true
+
+	return valid
+end
+
+

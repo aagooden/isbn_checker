@@ -33,6 +33,17 @@ class Isbn_test < Minitest::Test
 		assert_equal(false, validate_length(prepared))
 	end
 
+
+	def test_return_boolean
+		num = "0471958697"
+		assert_equal(TrueClass, validate_number(num).class)
+	end
+
+	def test_check_known_valid_isbn_number_returns_true
+		num = "0471958697"
+		assert_equal(true, validate_number(num))
+	end
+
 end
 
 
