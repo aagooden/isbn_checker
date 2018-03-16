@@ -59,6 +59,21 @@ class Isbn_test < Minitest::Test
 		num = "877195869X"
 		assert_equal(true, validate_number(num))
 	end
+
+
+	def test_prepare_and_validate_functions_working_together_properly_true
+		num = " 877 195 869X "
+		prepared = prepare(num)
+		assert_equal(true, validate_length(prepared))
+		assert_equal(true, validate_number(prepared))
+	end
+
+		def test_prepare_and_validate_functions_working_together_properly_true_and_false
+		num = " 877 195 861X "
+		prepared = prepare(num)
+		assert_equal(true, validate_length(prepared))
+		assert_equal(false, validate_number(prepared))
+	end
 end
 
 
