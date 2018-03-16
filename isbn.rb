@@ -96,8 +96,28 @@ def validate_13_number(num)
 	return valid
 end
 
-# puts "What is you ISBN number?"
-# num = gets.chomp
+system ("clear")
+puts "What is you ISBN number?"
+num = gets.chomp
+
+prepared = prepare(num)
+
+length_valid = validate_length(prepared)
+if length_valid == false
+
+elsif prepared.length == 10
+	valid = validate_ten_number(prepared)
+elsif prepared.length == 13
+	valid = validate_13_number(prepared)
+end
+
+
+if valid == true
+	puts "The number #{num} is a valid ISBN number."
+else
+	puts "The number #{num} is NOT a valid ISBN number."
+end
+
 
 
 
