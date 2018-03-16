@@ -3,10 +3,7 @@ def prepare(num)
 #preparing the number by getting rid of spaces
 	num.delete!(" ")
 	num.delete!("-")
-
-
 	return num
-
 end
 
 
@@ -18,7 +15,6 @@ def validate_length(num)
 	end
 
 	return valid
-
 end
 
 
@@ -90,16 +86,14 @@ def validate_13_number(num)
 
 
 
-
 	if sum == check
 		valid = true
 	else
 		valid = false
+	end
 
 
 	return valid
-
-	end
 end
 
 # puts "What is you ISBN number?"

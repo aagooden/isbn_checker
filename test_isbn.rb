@@ -161,8 +161,15 @@ class Isbn_test < Minitest::Test
 		assert_equal(true, validate_13_number(prepared))
 	end
 
-	def test_andother_prepare_and_validate_13_functions_working_together_properly_known_valid
+	def test_another_prepare_and_validate_13_functions_working_together_properly_known_valid
 		num = "9780131495050"
+		prepared = prepare(num)
+		assert_equal(true, validate_length(prepared))
+		assert_equal(true, validate_13_number(prepared))
+	end	
+
+		def test_known_valid_prepare_and_validate_13_functions_working_together_properly_known_valid
+		num = "978-1-4028-9462-6"
 		prepared = prepare(num)
 		assert_equal(true, validate_length(prepared))
 		assert_equal(true, validate_13_number(prepared))
