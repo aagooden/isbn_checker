@@ -25,11 +25,13 @@ def validate_number(num)
 
 #setting my check sum here... if it is "x" or "X" check sum is 10 else check is converted to integer for following calculation
 	check = num[num.length - 1]
+	
 	if check == "x" || check =="X"
-		check == 10
+		check = 10
 	else
 		check = check.to_i
 	end
+
 
 #performing validation math
 
@@ -51,7 +53,7 @@ def validate_number(num)
 	else
 		valid = false
 	end
-	
+
 	return valid
 
 end
