@@ -98,7 +98,7 @@ class Isbn_test < Minitest::Test
 
 
 	def test_prepare_and_validate_functions_working_together_properly_true_and_false_strange_characters
-		num = " - @$% &()* 4 / "
+		num = " - *@$% &()* 4 / "
 		prepared = prepare(num)
 		assert_equal(true, validate_length(prepared))
 		assert_equal(false, validate_ten_number(prepared))
@@ -154,6 +154,19 @@ class Isbn_test < Minitest::Test
 		assert_equal(false, validate_13_number(num))
 	end
 
+	def test_prepare_and_validate_13_functions_working_together_properly_known_valid
+		num = " 97-804-7 005-9029"
+		prepared = prepare(num)
+		assert_equal(true, validate_length(prepared))
+		assert_equal(true, validate_13_number(prepared))
+	end
+
+	def test_andother_prepare_and_validate_13_functions_working_together_properly_known_valid
+		num = "9780131495050"
+		prepared = prepare(num)
+		assert_equal(true, validate_length(prepared))
+		assert_equal(true, validate_13_number(prepared))
+	end	
 
 end
 

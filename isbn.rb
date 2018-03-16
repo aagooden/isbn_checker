@@ -2,6 +2,8 @@ def prepare(num)
 
 #preparing the number by getting rid of spaces
 	num.delete!(" ")
+	num.delete!("-")
+
 
 	return num
 
@@ -60,16 +62,18 @@ end
 
 def validate_13_number(num)
 
+#defining the check value
 	check = num[num.length - 1]
 	check = check.to_i
 
+#deleting the last digit for easier calculation
 	num[num.length - 1] = ""
-	switch = true
+
+	switch = true #switches from true to false to flag the correct multiplier
 	multiplier = 1
 	sum = 0
 
-
-
+#main validation calculation
 	num.each_char do |char|
 		if switch == true 
 			multiplier = 1
@@ -78,12 +82,14 @@ def validate_13_number(num)
 		end
 
 	sum = sum + (char.to_i * multiplier)
-		!switch
+		switch = !switch
 	end
 
 
-
 	sum = (10 - (sum % 10)) % 10
+
+
+
 
 	if sum == check
 		valid = true
